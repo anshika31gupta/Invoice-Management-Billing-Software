@@ -13,15 +13,15 @@
         }
 
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
+            --primary: #2d9d78;
+            --primary-dark: #1b6b54;
+            --primary-light: #3fb88d;
             --secondary: #ec4899;
             --success: #10b981;
             --danger: #ef4444;
             --warning: #f59e0b;
-            --info: #3b82f6;
-            --ai-accent: #8b5cf6;
+            --info: #2d9d78;
+            --ai-accent: #1b6b54;
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
@@ -107,7 +107,7 @@
             justify-content: center;
             font-size: 24px;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 4px 15px rgba(45, 157, 120, 0.4);
         }
 
         .sidebar-title {
@@ -219,7 +219,7 @@
             justify-content: center;
             min-height: 100vh;
             padding: 20px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--ai-accent) 100%);
+            background: linear-gradient(135deg, #2d9d78 0%, #1b6b54 100%);
             position: relative;
             overflow: hidden;
         }
@@ -264,14 +264,14 @@
         .login-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--ai-accent));
+            background: linear-gradient(135deg, #2d9d78, #1b6b54);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
             margin: 0 auto 16px;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 4px 15px rgba(45, 157, 120, 0.4);
         }
 
         .login-header h1 {
@@ -312,18 +312,18 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            border-color: #2d9d78;
+            box-shadow: 0 0 0 3px rgba(45, 157, 120, 0.1);
         }
 
         .demo-info {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            background: linear-gradient(135deg, rgba(45, 157, 120, 0.1), rgba(27, 107, 84, 0.1));
+            border: 1px solid rgba(45, 157, 120, 0.3);
             border-radius: 8px;
             padding: 12px;
             margin-bottom: 20px;
             font-size: 13px;
-            color: var(--primary);
+            color: #2d9d78;
         }
 
         .demo-info strong {
@@ -358,12 +358,12 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, #2d9d78, #1b6b54);
             color: white;
         }
 
         .btn-primary:hover {
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 10px 25px rgba(45, 157, 120, 0.4);
         }
 
         .btn-secondary {
@@ -422,7 +422,7 @@
         }
 
         .btn-ai:hover {
-            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+            box-shadow: 0 10px 25px rgba(45, 157, 120, 0.4);
         }
 
         .btn-sm {
@@ -475,7 +475,7 @@
 
         .search-box:focus-within {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 0 0 3px rgba(45, 157, 120, 0.1);
         }
 
         .search-box input {
@@ -512,7 +512,7 @@
             right: -100px;
             width: 200px;
             height: 200px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.05));
+            background: linear-gradient(135deg, rgba(45, 157, 120, 0.1), rgba(27, 107, 84, 0.05));
             border-radius: 50%;
             z-index: 0;
         }
@@ -753,8 +753,8 @@
 
         /* ===== AI SECTION ===== */
         .ai-section {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.15));
-            border: 2px solid rgba(139, 92, 246, 0.3);
+            background: linear-gradient(135deg, rgba(45, 157, 120, 0.15), rgba(27, 107, 84, 0.15));
+            border: 2px solid rgba(45, 157, 120, 0.3);
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 32px;
@@ -991,10 +991,29 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" placeholder="Enter your password" required>
+                        <div style="text-align: right; margin-top: 8px;">
+                            <a href="#" onclick="showForgotPassword(event)" style="font-size: 12px; color: var(--primary); font-weight: 500; text-decoration: none;">Forgot Password?</a>
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-block">
                         <i class="fas fa-sign-in-alt"></i> Sign In
+                    </button>
+                </form>
+
+                <!-- Forgot Password Form -->
+                <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)" style="display: none;">
+                    <div class="form-group">
+                        <label for="forgotEmail">Email Address</label>
+                        <input type="email" id="forgotEmail" placeholder="Enter your registered email" required>
+                    </div>
+
+                    <p style="font-size: 12px; color: var(--gray-500); margin-bottom: 20px;">
+                        We'll send you a password reset link to your email address.
+                    </p>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-envelope"></i> Send Reset Link
                     </button>
                 </form>
 
@@ -1025,10 +1044,13 @@
                     </button>
                 </form>
 
-                <!-- Toggle between Sign In and Sign Up -->
+                <!-- Toggle between Sign In, Sign Up, and Forgot Password -->
                 <p style="text-align: center; margin-top: 20px; font-size: 13px; color: var(--gray-500);">
                     <span id="toggleText">
                         Don't have an account? <a href="#" onclick="toggleAuthForm(event)" style="color: var(--primary); font-weight: 500;">Sign Up</a>
+                    </span>
+                    <span id="backToLoginText" style="display: none;">
+                        Remember your password? <a href="#" onclick="backToLogin(event)" style="color: var(--primary); font-weight: 500;">Sign In</a>
                     </span>
                 </p>
             </div>
@@ -1916,7 +1938,7 @@
         let payments = [];
         let currentCompanyId = null;
 
-        const API_URL = 'http://localhost:3001/api/v1';
+       const API_URL = 'https://invoice-management-billing-software-production.up.railway.app/api/v1';
 
         // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', function() {
@@ -2081,7 +2103,9 @@
 
             const loginForm = document.getElementById('loginForm');
             const signupForm = document.getElementById('signupForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
             const toggleText = document.getElementById('toggleText');
+            const backToLoginText = document.getElementById('backToLoginText');
             const loginAlert = document.getElementById('loginAlert');
 
             loginAlert.innerHTML = '';
@@ -2090,6 +2114,9 @@
                 // Switch to login
                 loginForm.style.display = 'block';
                 signupForm.style.display = 'none';
+                forgotPasswordForm.style.display = 'none';
+                toggleText.style.display = 'inline';
+                backToLoginText.style.display = 'none';
                 toggleText.innerHTML = `Don't have an account? <a href="#" onclick="toggleAuthForm(event)" style="color: var(--primary); font-weight: 500;">Sign Up</a>`;
                 document.querySelector('.login-header h1').textContent = 'InvoiceAI';
                 document.querySelector('.login-header p').textContent = 'Smart Billing Platform with AI';
@@ -2097,9 +2124,97 @@
                 // Switch to signup
                 loginForm.style.display = 'none';
                 signupForm.style.display = 'block';
+                forgotPasswordForm.style.display = 'none';
+                toggleText.style.display = 'inline';
+                backToLoginText.style.display = 'none';
                 toggleText.innerHTML = `Already have an account? <a href="#" onclick="toggleAuthForm(event)" style="color: var(--primary); font-weight: 500;">Sign In</a>`;
                 document.querySelector('.login-header h1').textContent = 'Create Account';
                 document.querySelector('.login-header p').textContent = 'Join InvoiceAI - Start managing invoices today';
+            }
+        }
+
+        function showForgotPassword(e) {
+            if (e) e.preventDefault();
+
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const toggleText = document.getElementById('toggleText');
+            const backToLoginText = document.getElementById('backToLoginText');
+            const loginAlert = document.getElementById('loginAlert');
+
+            loginAlert.innerHTML = '';
+
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'none';
+            forgotPasswordForm.style.display = 'block';
+            toggleText.style.display = 'none';
+            backToLoginText.style.display = 'inline';
+            document.querySelector('.login-header h1').textContent = 'Reset Password';
+            document.querySelector('.login-header p').textContent = 'Enter your email to receive a password reset link';
+        }
+
+        function backToLogin(e) {
+            if (e) e.preventDefault();
+
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const toggleText = document.getElementById('toggleText');
+            const backToLoginText = document.getElementById('backToLoginText');
+            const loginAlert = document.getElementById('loginAlert');
+
+            loginAlert.innerHTML = '';
+
+            loginForm.style.display = 'block';
+            signupForm.style.display = 'none';
+            forgotPasswordForm.style.display = 'none';
+            toggleText.style.display = 'inline';
+            backToLoginText.style.display = 'none';
+            toggleText.innerHTML = `Don't have an account? <a href="#" onclick="toggleAuthForm(event)" style="color: var(--primary); font-weight: 500;">Sign Up</a>`;
+            document.querySelector('.login-header h1').textContent = 'InvoiceAI';
+            document.querySelector('.login-header p').textContent = 'Smart Billing Platform with AI';
+        }
+
+        async function handleForgotPassword(e) {
+            e.preventDefault();
+
+            const forgotEmail = document.getElementById('forgotEmail').value;
+            const loginAlert = document.getElementById('loginAlert');
+
+            try {
+                // Simulate API call to send reset email
+                loginAlert.innerHTML = `
+                    <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); 
+                                border: 1px solid rgba(16, 185, 129, 0.3); 
+                                border-radius: 8px; 
+                                padding: 12px 16px; 
+                                margin-bottom: 20px; 
+                                color: var(--success);
+                                font-size: 13px;">
+                        <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                        Password reset link sent to <strong>${forgotEmail}</strong>. Please check your email.
+                    </div>
+                `;
+
+                // Reset form after 3 seconds and go back to login
+                setTimeout(() => {
+                    document.getElementById('forgotPasswordForm').reset();
+                    backToLogin();
+                }, 3000);
+            } catch (error) {
+                loginAlert.innerHTML = `
+                    <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05)); 
+                                border: 1px solid rgba(239, 68, 68, 0.3); 
+                                border-radius: 8px; 
+                                padding: 12px 16px; 
+                                margin-bottom: 20px; 
+                                color: var(--danger);
+                                font-size: 13px;">
+                        <i class="fas fa-exclamation-circle" style="margin-right: 8px;"></i>
+                        Error: ${error.message}
+                    </div>
+                `;
             }
         }
 
